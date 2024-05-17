@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    .header {
+        background-color: rgb(0, 128, 255);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #00d9ff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 140px);
+        border-top: 2px solid #00d9ff;
+        border-bottom: 2px solid #00d9ff;
+        background-color: #fff;
+    }
+    .button {
+        flex-grow: 1;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 20px;
+        border-right: 2px solid #ccc;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .home {
+        background-color: #00d9ff;
+        border-top: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+    }
+    .approfondimenti {
+        background-color: #00d9ff;
+        border-top: 2px solid #ccc;
+        border-bottom: 2px solid #ccc; 
+    }
+    .fonti {
+        border-top: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+        border-right: none;
+        background-color: #00d9ff;
+    }
+    .cookie-consent {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background-color: #ffffff;
+        color: #333;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: center;
+        display: none;
+    }
+    .cookie-consent button {
+        background-color: #00d9ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .cookie-consent button:hover {
+        background-color: #0088ff;
+    }
+</style>
+</head>
+<body>
+
+<header class="header">
+    <h1>FISICA</h1>
+</header>
+
+<div class="container">
+    <a class="button home" id="Generale" href="gen.html">MOTO CARICHE IN UN CAMPO MAGNETICO</a>
+    <a class="button approfondimenti" id="approfondimenti" href="app.html">ANALISI</a>
+    <a class="button fonti" id="fonti" href="fonti.html">FONTI</a>
+</div>
+
+<div class="cookie-consent" id="cookie-consent">
+    Vuoi accettare i cookie?
+    <br><br>
+    <button id="accept-cookies">Accetta</button>
+    <button id="reject-cookies">Rifiuta</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (localStorage.getItem('cookiesAccepted') !== null) {
+            return;
+        }
+
+        var cookieConsent = document.getElementById('cookie-consent');
+        var acceptCookies = document.getElementById('accept-cookies');
+        var rejectCookies = document.getElementById('reject-cookies');
+
+        cookieConsent.style.display = 'block';
+
+        acceptCookies.addEventListener('click', function() {
+            cookieConsent.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+
+        rejectCookies.addEventListener('click', function() {
+            cookieConsent.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'false');
+        });
+    });
+</script>
+
+</body>
+</html>

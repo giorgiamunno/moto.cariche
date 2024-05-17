@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #00d9ff;
+        }
+
+        header {
+            background-color: #0088ff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.789);
+            width: 100%;
+            max-width: 1500px;
+            text-align: left;
+        }
+
+        footer {
+            background-color: #0088ff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+            position: static;
+        }
+
+        .music-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: white;
+            color: #0088ff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .music-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ANALISI</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gen.html">Introduzione</a></li>
+                <li><a href="app.html">Analisi</a></li>
+                <li><a href="fonti.html">Fonti</a></li>
+            </ul>
+        </nav>
+        <button class="music-button" onclick="toggleMusic()">Avvia MP3</button>
+    </header>
+    <main>
+        <div class="box">
+            <h1>Analisi</h1><br>
+            <p>Ora calcolo il flusso del campo elettrico attraverso una superficie chiusa, generato dalla
+                carica in essa contenuta.
+                Definizione: Il flusso è la quantità di materia che passa attraverso una superficie nell’unità
+                di tempo. Si calcola tramite un prodotto scalare effettuato tra il vettore che fluisce e la
+                superficie in cui fluisce.
+
+                <img src="a1.png" alt="Immagine" style="display: block; margin: 20px auto; width: 600px; height: 300px;">
+
+                Il flusso totale, utilizzando la notazione integrale si rappresenta nel modo rappresentato
+                sotto, utilizzando un integrale di superficie, utilizzato per calcolare la somma di tutti i
+                prodotti scalari dei flussi.
+
+                <img src="a2.png" alt="Immagine" style="display: block; margin: 20px auto; width: 600px; height: 300px;">
+            </p>
+        </div>
+    </main>
+    <footer>
+        <p>2024 Giorgia Munno</p>
+    </footer>
+
+    <audio id="background-music" src="audio.mp3"></audio>
+
+    <script>
+        let isPlaying = false;
+        const music = document.getElementById('background-music');
+        const button = document.querySelector('.music-button');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                button.textContent = 'Avvia MP3';
+            } else {
+                music.play();
+                button.textContent = 'Stop MP3';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>

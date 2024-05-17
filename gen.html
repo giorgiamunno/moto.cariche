@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduzione</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 200vh;
+            background-color: #00d9ff;
+        }
+
+        header {
+            background-color: rgba(0, 136, 255, 0.9);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgb(249, 249, 249);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.789);
+            width: 100%;
+            max-width: 1500px;
+            text-align: left;
+        }
+
+        footer {
+            background-color: rgba(0, 136, 255, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .music-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: white;
+            color: rgba(0, 136, 255, 0.9);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .music-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MOTO CARICHE IN UN CAMPO MAGNETICO</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gen.html">Introduzione</a></li>
+                <li><a href="app.html">Analisi</a></li>
+                <li><a href="fonti.html">Fonti</a></li>
+                <li><button class="music-button" onclick="toggleMusic()">Avvia MP3</button></li>
+            </ul>
+        </nav>
+        
+    </header>
+    
+    <main>
+        <div class="box">
+            <h1>Moto di cariche in un campo elettrico</h1><br>
+            <p>Possiamo trovare una carica in due circostanze diverse:<br><br>
+                1. Carica singola, che crea elettrico un campo radiale
+                Definizione: nel caso di una carica singola puntiforme le linee di campo sono uscenti dalla carica
+                positiva e nel caso di una carica negativa sono entranti.
+
+                <img src="1.png" alt="Immagine" style="display: block; margin: 20px auto; width: 600px; height: 300px;">
+
+                2. Carica inserita in un condensatore dove è presente un campo elettrico uniforme
+                Definizione: un campo elettrico E si definisce uniforme se in qualunque punto dello spazio assume
+                sempre lo stesso modulo, la stessa direzione e lo stesso verso.
+            </p>
+
+            <img src="2.png" alt="Immagine" style="display: block; margin: 20px auto; width: 500px; height: 300px;">
+
+            <p>Analizziamo il movimento di una carica positiva, di velocità iniziale Vi = 0, quando si trova
+            all’interno di un condensatore:</p>
+
+            <p>All’interno di un’armatura, una carica positiva si muove
+            spontaneamente di moto accelerato verso l’armatura di
+            segno -.<br><br>
+            Domanda: ma l’accelerazione quanto vale?</p>
+
+            <img src="3.png" alt="Immagine" style="display: block; margin: 20px auto; width: 450px; height: 300px;">
+
+            <p>Analizziamo il moto di una particella sparata all’interno di un campo elettrico
+            Una carica positiva, sparata all’interno di un campo elettrico si muove di moto parabolico e la sua
+            traiettoria varia sulla base di dove si trova l’armatura positiva e dove si trova quella negativa,
+            tenendo sempre in considerazione che la carica si muove verso l’armatura di segno - (in questo
+            caso la carica va verso il basso).</p>
+
+            <img src="4.png" alt="Immagine" style="display: block; margin: 20px auto; width: 500px; height: 300px;">
+
+            <p>Calcolo la traiettoria, in cui esplicito t</p>
+
+            <img src="5.png" alt="Immagine" style="display: block; margin: 20px auto; width: 600px; height: 300px;">
+        </div>
+    </main>
+
+    <br><br><br><br>
+
+    <footer>
+        <p>2024 Giorgia Munno</p>
+    </footer>
+
+    <audio id="background-music" src="audio.mp3"></audio>
+
+    <script>
+        let isPlaying = false;
+        const music = document.getElementById('background-music');
+        const button = document.querySelector('.music-button');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                button.textContent = 'Avvia MP3';
+            } else {
+                music.play();
+                button.textContent = 'Stop MP3';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
